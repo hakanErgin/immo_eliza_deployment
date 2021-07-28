@@ -7,7 +7,7 @@ app = Flask(__name__)
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return "<h1>Wehgfghlcome to our server !!</h1>"
 
 if __name__ == '__main__':
     # You want to put the value of the env variable PORT if it exist (some services only open specifiques ports)
