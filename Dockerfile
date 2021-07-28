@@ -1,7 +1,5 @@
 FROM python:3.7
-RUN mkdir /app
-RUN mkdir /app/code
-COPY code/app.py /app/code/app.py
+COPY . /app
 WORKDIR /app
-RUN pip install Flask
-CMD ["python", "code/app.py"]
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
