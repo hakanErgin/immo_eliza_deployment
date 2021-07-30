@@ -2,7 +2,21 @@
 
 ## Description
 
-blah blah
+```
+{
+  "data": {
+    "area": int,
+    "property-type": "APARTMENT" | "HOUSE" | "OTHERS",
+    "rooms-number": int,
+    "zip-code": int,
+    "facades-number": Optional[int],
+    "building-state": Optional[
+      "NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"
+    ]
+  }
+}
+
+```
 
 ## Usage
 
