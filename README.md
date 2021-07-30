@@ -6,13 +6,16 @@
 {
   "data": {
     "area": int,
-    "property-type": "APARTMENT" | "HOUSE" | "OTHERS",
-    "rooms-number": int,
-    "zip-code": int,
-    "facades-number": Optional[int],
-    "building-state": Optional[
-      "NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"
-    ]
+    "subtype": ['MIXED_USE_BUILDING', 'HOUSE', 'MANSION', 'APARTMENT', 'VILLA',
+       'FLAT_STUDIO', 'EXCEPTIONAL_PROPERTY', 'PENTHOUSE', 'GROUND_FLOOR',
+       'TOWN_HOUSE', 'DUPLEX', 'APARTMENT_BLOCK', 'FARMHOUSE', 'BUNGALOW',
+       'COUNTRY_COTTAGE', 'SERVICE_FLAT', 'TRIPLEX', 'OTHER_PROPERTY',
+       'CHALET', 'LOFT', 'KOT', 'MANOR_HOUSE', 'PAVILION', 'CASTLE'],
+    "room_number": int,
+    "location": int,
+    "facade_count": int,
+    "building_condition" : ['GOOD', 'TO_BE_DONE_UP', 'AS_NEW', 'TO_RESTORE', 'JUST_RENOVATED',
+       'TO_RENOVATE']
   }
 }
 
