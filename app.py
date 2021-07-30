@@ -1,16 +1,25 @@
 # app.py
 import os
 from flask import Flask, request, jsonify
-app = Flask(__name__)
+from preprocessing.cleaning_data import preprocess
 
+app = Flask(__name__)
 
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Wehgfghlcome to our server !!</h1>"
+    return "<h1>Alive, go to predict</h1>"
+
+@app.route('/predict', methods = ['GET', 'POST'])
+def make_prediction():
+    if request.method == 'GET':
+        return "<h1>make POST request instead</h1>"
+    else:
+        json = request.get_json()
+        
+        return preprocess(json)
 
 if __name__ == '__main__':
-    # You want to put the value of the env variable PORT if it exist (some services only open specifiques ports)
     port = int(os.environ.get('PORT', 5000))
     # Threaded option to enable multiple instances for
     # multiple user access support
