@@ -2,6 +2,7 @@
 import os
 from flask import Flask, request, jsonify
 from preprocessing.cleaning_data import preprocess
+from model.get_model import get_model
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ def make_prediction():
         return preprocess(json)
 
 if __name__ == '__main__':
+    model = get_model()
     port = int(os.environ.get('PORT', 5000))
     # Threaded option to enable multiple instances for
     # multiple user access support
