@@ -1,12 +1,12 @@
-# app.py
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from preprocessing.cleaning_data import preprocess
 from model.get_model import get_model
 
 app = Flask(__name__)
+cors = CORS(app)
 
-# A welcome message to test our server
 @app.route('/')
 def index():
     return "I'm alive, you can go to /predict"

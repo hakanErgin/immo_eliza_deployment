@@ -2,9 +2,10 @@
 
 ## Description
 
+The expected input is as follows:
+
 ```
 {
-  "data": {
     "area": int,
     "subtype": ['MIXED_USE_BUILDING', 'HOUSE', 'MANSION', 'APARTMENT', 'VILLA',
        'FLAT_STUDIO', 'EXCEPTIONAL_PROPERTY', 'PENTHOUSE', 'GROUND_FLOOR',
@@ -16,14 +17,21 @@
     "facade_count": int,
     "building_condition" : ['GOOD', 'TO_BE_DONE_UP', 'AS_NEW', 'TO_RESTORE', 'JUST_RENOVATED',
        'TO_RENOVATE']
-  }
 }
 
 ```
 
+Successful request should resolve in response:
+
+```
+{
+    "price": int
+}
+```
+
 ## Usage
 
-send your HTTP post equest over [here](https://app-deployment-example.herokuapp.com/)
+Send your POST request over [here](https://app-deployment-example.herokuapp.com/predict)
 
 ## Development
 

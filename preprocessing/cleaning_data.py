@@ -23,10 +23,6 @@ def transform_categorical_feature(
 
     return new_df
 
-# df = pd.DataFrame(item, index=[0], columns=model_columns).fillna(0)
-# item = {"subtype": "CASTLE"}
-# df[item['subtype']] = 1
-
 def preprocess(house_data):
     df = pd.DataFrame(house_data, index=[0])
 
