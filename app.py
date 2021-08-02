@@ -9,16 +9,17 @@ app = Flask(__name__)
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Alive, go to predict</h1>"
+    return "I'm alive, you can go to /predict"
 
 @app.route('/predict', methods = ['GET', 'POST'])
 def make_prediction():
     if request.method == 'GET':
-        return "<h1>make POST request instead</h1>"
+        return "make POST request instead"
     else:
-        json = request.get_json()
-        
-        return preprocess(json)
+        input = request.json
+        processed_input = preprocess(input)
+        prediction = model.predict(processed_input)
+        return jsonify({"price": list(prediction)[0]})
 
 if __name__ == '__main__':
     model = get_model()
