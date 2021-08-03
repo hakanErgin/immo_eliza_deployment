@@ -1,16 +1,28 @@
-# app.py
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+from preprocessing.cleaning_data import preprocess
+from model.get_model import get_model
+
 app = Flask(__name__)
+cors = CORS(app)
 
-
-# A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Wehgfghlcome to our server !!</h1>"
+    return "I'm alive, you can go to /predict"
+
+@app.route('/predict', methods = ['GET', 'POST'])
+def make_prediction():
+    if request.method == 'GET':
+        return "make POST request instead"
+    else:
+        input = request.json
+        processed_input = preprocess(input)
+        prediction = model.predict(processed_input)
+        return jsonify({"price": list(prediction)[0]})
 
 if __name__ == '__main__':
-    # You want to put the value of the env variable PORT if it exist (some services only open specifiques ports)
+    model = get_model()
     port = int(os.environ.get('PORT', 5000))
     # Threaded option to enable multiple instances for
     # multiple user access support
